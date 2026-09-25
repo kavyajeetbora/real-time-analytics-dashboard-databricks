@@ -192,7 +192,9 @@ print(f"Starting ride simulator → Volume '{LANDING_PATH}'")
 print(f"Batch size: {BATCH_SIZE} rides | Interval: {INTERVAL_SECS}s\n")
 
 batch_num = 0
-while True:
+MAX_BATCHES = 200  # For testing purpose only
+
+while batch_num < MAX_BATCHES:
     batch_num += 1
     now    = datetime.now(IST)
     events = [generate_ride_event() for _ in range(BATCH_SIZE)]
