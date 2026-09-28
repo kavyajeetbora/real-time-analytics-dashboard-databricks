@@ -1,0 +1,16 @@
+resources:
+  jobs:
+    ingestion:
+      name: ingestion
+      tasks:
+        - task_key: ingestion
+          notebook_task:
+            notebook_path: ../../src/simulator/ride_simulator.ipynb
+            base_parameters:
+              CATALOG: ${var.catalog_name}
+              SCHEMA: ${var.schema_name}
+              LANDING: ${var.landing_path}
+          disable_auto_optimization: true
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

@@ -17,7 +17,14 @@
 
 # COMMAND ----------
 
-LANDING_PATH  = "/Volumes/workspace/realtime/landing"
+CATALOG = dbutils.widgets.get('CATALOG')
+SCHEMA = dbutils.widgets.get('SCHEMA')
+
+LANDING = dbutils.widgets.get('LANDING')
+
+# COMMAND ----------
+
+LANDING_PATH  = f"/Volumes/{CATALOG}/{SCHEMA}/{LANDING}"
 BATCH_SIZE    = 15
 INTERVAL_SECS = 5
 
@@ -192,7 +199,7 @@ print(f"Starting ride simulator → Volume '{LANDING_PATH}'")
 print(f"Batch size: {BATCH_SIZE} rides | Interval: {INTERVAL_SECS}s\n")
 
 batch_num = 0
-MAX_BATCHES = 200  # For testing purpose only
+MAX_BATCHES = 5  # For testing purpose only
 
 while batch_num < MAX_BATCHES:
     batch_num += 1

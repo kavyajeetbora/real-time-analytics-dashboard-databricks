@@ -4,14 +4,16 @@
       "name": "f3ee4009",
       "displayName": "Summary",
       "queryLines": [
-        "SELECT total_rides, total_revenue_inr, cancellation_rate_pct, active_drivers, avg_fare_inr from workspace.realtime.gold_live_kpis;"
-      ]
+        "SELECT total_rides, total_revenue_inr, cancellation_rate_pct, active_drivers, avg_fare_inr from ride_analytics_dev.realtime.gold_live_kpis;"
+      ],
+      "catalog": "ride_analytics_dev",
+      "schema": "realtime"
     },
     {
       "name": "3b615a17",
       "displayName": "Ride Status Count",
       "queryLines": [
-        "SELECT status, ride_count FROM workspace.realtime.gold_ride_status_breakdown;"
+        "SELECT status, ride_count FROM ride_analytics_dev.realtime.gold_ride_status_breakdown;"
       ]
     },
     {
@@ -19,7 +21,7 @@
       "displayName": "gold_rides_by_city",
       "config": {
         "version": "1.1",
-        "source": "workspace.realtime.gold_rides_by_city",
+        "source": "ride_analytics_dev.realtime.gold_rides_by_city",
         "dimensions": [
           {
             "expr": "source.*"
@@ -40,7 +42,7 @@
       "displayName": "gold_cancellation_analysis",
       "config": {
         "version": "1.1",
-        "source": "workspace.realtime.gold_cancellation_analysis",
+        "source": "ride_analytics_dev.realtime.gold_cancellation_analysis",
         "dimensions": [
           {
             "expr": "source.*"
@@ -61,7 +63,7 @@
       "displayName": "gold_pickup_demand",
       "config": {
         "version": "1.1",
-        "source": "workspace.realtime.gold_pickup_demand",
+        "source": "ride_analytics_dev.realtime.gold_pickup_demand",
         "dimensions": [
           {
             "expr": "source.*"

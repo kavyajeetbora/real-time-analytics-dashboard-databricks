@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    pipeline_realtime_analytics_pipeline:
+      name: realtime_analytics_pipeline
+      configuration:
+        landing_dir_path: /Volumes/${var.catalog_name}/${var.schema_name}/${var.landing_path}
+      libraries:
+        - glob:
+            include: ../src/transformations/**
+      schema: ${var.schema_name}
+      continuous: false
+      development: true
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog_name}
+      serverless: true
+      root_path: ../src
+

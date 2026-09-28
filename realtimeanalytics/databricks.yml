@@ -1,0 +1,35 @@
+# This is a Declarative Automation Bundle definition for realtimeanalytics.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: realtimeanalytics
+  uuid: c3460549-914d-47a6-bae0-907a9266c4b3
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-dc2e804d-6eed.cloud.databricks.com
+    variables:
+      catalog: ride_analytics_dev
+      schema: dev
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-dc2e804d-6eed.cloud.databricks.com
+      # We explicitly deploy to /Workspace/Users/charlieadam4678@gmail.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/charlieadam4678@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: ride_analytics_prod
+      schema: prod
+    permissions:
+      - user_name: charlieadam4678@gmail.com
+        level: CAN_MANAGE

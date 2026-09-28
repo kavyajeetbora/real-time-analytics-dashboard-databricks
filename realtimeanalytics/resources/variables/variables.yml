@@ -1,0 +1,8 @@
+variables:
+  catalog_name: 
+    description: "Catalog Name"
+    default: ride_analytics_dev
+  schema_name: 
+    default: realtime
+  landing_path: 
+    default: landing
