@@ -6,3 +6,7 @@ variables:
     default: realtime
   landing_path: 
     default: landing
+  warehouse_id:
+    default: 7474660332254945
+    lookup:
+      warehouse: "Serverless Starter Warehouse"
