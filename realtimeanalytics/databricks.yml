@@ -19,8 +19,8 @@ targets:
     workspace:
       host: https://dbc-dc2e804d-6eed.cloud.databricks.com
     variables:
-      catalog: ride_analytics_dev
-      schema: dev
+      catalog_name: ride_analytics_dev
+      schema_name: dev
   prod:
     mode: production
     workspace:
@@ -28,8 +28,8 @@ targets:
       # We explicitly deploy to /Workspace/Users/charlieadam4678@gmail.com to make sure we only have a single copy.
       root_path: /Workspace/Users/charlieadam4678@gmail.com/.bundle/${bundle.name}/${bundle.target}
     variables:
-      catalog: ride_analytics_prod
-      schema: prod
+      catalog_name: ride_analytics_prod
+      schema_name: prod
     permissions:
-      - user_name: charlieadam4678@gmail.com
+      - group_name: admins
         level: CAN_MANAGE

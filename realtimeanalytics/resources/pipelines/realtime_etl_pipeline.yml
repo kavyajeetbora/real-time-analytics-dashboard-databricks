@@ -6,7 +6,7 @@ resources:
         landing_dir_path: /Volumes/${var.catalog_name}/${var.schema_name}/${var.landing_path}
       libraries:
         - glob:
-            include: ../src/transformations/**
+            include: ../../src/transformations/**
       schema: ${var.schema_name}
       continuous: false
       development: true
@@ -14,5 +14,5 @@ resources:
       channel: CURRENT
       catalog: ${var.catalog_name}
       serverless: true
-      root_path: ../src
+      root_path: ../../src
 
